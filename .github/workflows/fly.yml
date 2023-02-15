@@ -15,6 +15,7 @@ jobs:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
       - run: npm ci
+      - run: rm -rf .angular ./dist
       - run: npx nx build nx-angular-demo:production
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy -c .\deploy\fly.toml --dockerfile .\apps\nx-angular-demo\Dockerfile --remote-only
