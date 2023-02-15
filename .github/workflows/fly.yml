@@ -21,6 +21,6 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - run: npm ci
       - run: rm -rf .angular ./dist
-      - run: npx nx affected:build --configuration=production --verbose
+      - run: npx nx run nx-angular-demo:build --configuration production --verbose
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy -c ./deploy/fly.toml --dockerfile ./apps/nx-angular-demo/Dockerfile --remote-only
