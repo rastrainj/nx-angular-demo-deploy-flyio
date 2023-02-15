@@ -7,19 +7,25 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/nx-angular-demo",
         "index": "apps/nx-angular-demo/src/index.html",
         "main": "apps/nx-angular-demo/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/nx-angular-demo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/nx-angular-demo/src/favicon.ico",
           "apps/nx-angular-demo/src/assets"
         ],
-        "styles": ["apps/nx-angular-demo/src/styles.scss"],
+        "styles": [
+          "apps/nx-angular-demo/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -44,7 +50,13 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/nx-angular-demo/src/environments/environment.ts",
+              "with": "apps/nx-angular-demo/src/environments/environment.development.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -69,7 +81,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
         "lintFilePatterns": [
           "apps/nx-angular-demo/**/*.ts",
@@ -79,7 +93,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/nx-angular-demo/jest.config.ts",
         "passWithNoTests": true
@@ -93,11 +109,15 @@
     },
     "container": {
       "executor": "@nx-tools/nx-container:build",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "engine": "docker",
         "metadata": {
-          "images": ["nx-angular-demo-deploy-flyio/nx-angular-demo"],
+          "images": [
+            "nx-angular-demo-deploy-flyio/nx-angular-demo"
+          ],
           "load": true,
           "tags": [
             "type=schedule",

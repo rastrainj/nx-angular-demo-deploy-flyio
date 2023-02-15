@@ -1,1 +1,15 @@
-<nx-angular-demo-deploy-flyio-nx-welcome></nx-angular-demo-deploy-flyio-nx-welcome>
+<h1>APP</h1>
+
+<div>
+  <label for="title">Title: </label>
+  <input type="text" id="title" [(ngModel)]="userTitle">
+  <button type="button" (click)="addNewUser()">Crear Usuario</button>
+</div>
+
+<br/>
+
+<ul>
+  <li *ngFor="let user of users">
+    <div>{{ user.id + ' - ' + user.title }}</div>
+  </li>
+</ul>
