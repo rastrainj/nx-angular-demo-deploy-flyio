@@ -23,4 +23,4 @@ jobs:
       - run: rm -rf .angular ./dist
       - run: npx nx affected:build --configuration=production --verbose
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy -c .\deploy\fly.toml --dockerfile .\apps\nx-angular-demo\Dockerfile --remote-only
+      - run: flyctl deploy -c ./deploy/fly.toml --dockerfile ./apps/nx-angular-demo/Dockerfile --remote-only
